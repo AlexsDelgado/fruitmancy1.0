@@ -98,14 +98,40 @@ public class CombateCaCPlayer : MonoBehaviour
     public void ataqueNuevo(int quarter)
     {
         StartCoroutine(animacionSFX(quarter));
-        Collider2D[] rangoManzana = Physics2D.OverlapCircleAll(quarters[quarter].GetComponent<Transform>().position,hitRadio);
-        foreach (Collider2D collider in rangoManzana)
+
+        switch (playerManager.player_Instance.status)
         {
-            if (collider.CompareTag("Enemy"))
-            {
-                collider.transform.GetComponent<Enemy>().TakeDamage(hitDamage);
-            }
+            case 0:
+                break;
+            case 1:
+
+                Collider2D[] rangoManzana = Physics2D.OverlapCircleAll(quarters[quarter].GetComponent<Transform>().position, hitRadio);
+                foreach (Collider2D collider in rangoManzana)
+                {
+                    if (collider.CompareTag("Enemy"))
+                    {
+                        collider.transform.GetComponent<Enemy>().TakeDamage(hitDamage);
+                    }
+                }
+                break;
+            case 2:
+                Collider2D[] rangoBanana = Physics2D.OverlapBoxAll(quarters[quarter].GetComponent<Transform>().position, new Vector2(hitRadio, 1), 1);
+                foreach (Collider2D collider in rangoBanana)
+                {
+                    if (collider.CompareTag("Enemy"))
+                    {
+                        collider.transform.GetComponent<Enemy>().TakeDamage(hitDamage);
+                    }
+                }
+                //
+                break;
+            case 3:
+                //
+                break;
         }
+
+
+
     }
 
     private IEnumerator Attack()
@@ -120,10 +146,9 @@ public class CombateCaCPlayer : MonoBehaviour
     public IEnumerator animacionSFX(int quarter)
     {
         quarters[quarter].gameObject.SetActive(true);
-        //quarters[quarter].GetComponent<SpriteRenderer>().enabled = true;
         yield return new WaitForSeconds(0.1f);
         quarters[quarter].gameObject.SetActive(false);
-        //quarters[quarter].GetComponent<SpriteRenderer>().enabled = false;
+      
     }
 
 //puedeAtacar = false;
@@ -152,8 +177,11 @@ private IEnumerator UnableCollider()
         Gizmos.DrawWireSphere(quarters[3].GetComponent<Transform>().position, hitRadio);
         //Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(hitController.position, hitRadio);
-        ////Gizmos.color = Color.yellow;
-        ////Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
+        //Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(quarters[0].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+        Gizmos.DrawWireCube(quarters[1].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+        //Gizmos.DrawWireCube(quarters[2].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+        //Gizmos.DrawWireCube(quarters[3].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
         //Gizmos.color = Color.cyan;
         //Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
     }

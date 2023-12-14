@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 120dcd5942ebdd54ea81edd07d39c18a
+guid: ae8ba1580c769d349890d9aac053d428
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fxattack2_0
+      name: fx_pierce_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 219
-        width: 198
-        height: 203
+        y: 164
+        width: 138
+        height: 134
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ec0a2059b526a40ae6f6c58e738d26
-      internalID: -483844048
+      spriteID: e8cb111a550170d4daf777c7f1beebb2
+      internalID: -1106486211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fxattack2_1
+      name: fx_pierce_1
       rect:
         serializedVersion: 2
-        x: 382
-        y: 219
-        width: 198
-        height: 203
+        x: 309
+        y: 159
+        width: 138
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b86c9c58fb4e0b2438a0537cd4390f23
-      internalID: 96772762
+      spriteID: 6f4deec7a6c97034ca6422226ad9f111
+      internalID: 1494390574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fxattack2_2
+      name: fx_pierce_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
-        width: 198
-        height: 203
+        y: 4
+        width: 138
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60a798b10d366e42b2ee3e4f6ca48d4
-      internalID: -2008140758
+      spriteID: 60af0fce9f7c035488bdd4ec7d3b3b18
+      internalID: 800538672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fxattack2_3
+      name: fx_pierce_4
       rect:
         serializedVersion: 2
-        x: 382
-        y: 8
-        width: 198
-        height: 203
+        x: 309
+        y: 0
+        width: 138
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50aaad210f168be428770dfe2e09ae1f
-      internalID: 83322897
+      spriteID: 8b4e6976a4aca0b48938979ee44706a9
+      internalID: -1047543420
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fxattack2_0: -483844048
-      fxattack2_1: 96772762
-      fxattack2_2: -2008140758
-      fxattack2_3: 83322897
+      fx_pierce_0: -1106486211
+      fx_pierce_1: 1494390574
+      fx_pierce_2: 2034714054
+      fx_pierce_3: 800538672
+      fx_pierce_4: -1047543420
+      fx_pierce_5: -636695712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
