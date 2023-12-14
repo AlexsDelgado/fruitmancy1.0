@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 1cb81510ee1e5a744a95f1a87d28a7b2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tilemap paredes_10
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 1045
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7a1bdec3c945f4484c44329abd16e9
+      internalID: 2074585581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_11
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 1045
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc08c71673516e41a6c1272e84ab7d3
+      internalID: -1568399286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_12
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 1045
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9950b516e872ea44ead3d87bf9a109fa
+      internalID: 1055791858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_14
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 1045
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f78ad260c618e54382fe4e59a76dd78
+      internalID: -1368261727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_16
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1044
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c121dfc7bb38964498ba814c80341cc0
+      internalID: -1022567054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_19
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 917
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e0433f7cfa1c44baaa92e84b6d566c
+      internalID: 1961850657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_20
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 917
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a918ac88d3a04b4d89cc54ab10c2b5e
+      internalID: -1089502761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_21
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 917
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a95bc3d43f069142a16625a795851d3
+      internalID: -630477228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_23
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 917
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb22cb719688784b914c50dff0abe56
+      internalID: -1768743734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_28
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 789
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0061c31799d6af34588caaef12b0cf54
+      internalID: -2106634527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_29
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 789
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555a9fd9f8e60044f941a3bb6b3bd367
+      internalID: -530065741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_30
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 789
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6f7c2f7e9df644d971047f6c35d7fe
+      internalID: 24779693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_32
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 789
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d5885d7493e1a45a7f862bd3d585c7
+      internalID: -1110541111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_34
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 776
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4643942cc3c2347a6219e3a24d36a0
+      internalID: -1906933388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_37
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 661
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e14f0913641dc348be92d5d54885ca4
+      internalID: 2055637003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_38
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 661
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b17a13ab8a3fa4a8df11a2940d3590
+      internalID: -2008832987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap paredes_39
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 661
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94df9b1d51dc2f4193b10ac9e2f3977
+      internalID: -287523864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tilemap paredes_0: -266617621
+      Tilemap paredes_1: -908869831
+      Tilemap paredes_10: 2074585581
+      Tilemap paredes_11: -1568399286
+      Tilemap paredes_12: 1055791858
+      Tilemap paredes_13: 573307554
+      Tilemap paredes_14: -1368261727
+      Tilemap paredes_15: -390371504
+      Tilemap paredes_16: -1022567054
+      Tilemap paredes_17: -287880278
+      Tilemap paredes_18: 1771061948
+      Tilemap paredes_19: 1961850657
+      Tilemap paredes_2: 934139937
+      Tilemap paredes_20: -1089502761
+      Tilemap paredes_21: -630477228
+      Tilemap paredes_22: 738029628
+      Tilemap paredes_23: -1768743734
+      Tilemap paredes_24: 1230691924
+      Tilemap paredes_25: 1342759144
+      Tilemap paredes_26: -1236700347
+      Tilemap paredes_27: -1761596152
+      Tilemap paredes_28: -2106634527
+      Tilemap paredes_29: -530065741
+      Tilemap paredes_3: 1232355094
+      Tilemap paredes_30: 24779693
+      Tilemap paredes_31: -321445147
+      Tilemap paredes_32: -1110541111
+      Tilemap paredes_33: 506406890
+      Tilemap paredes_34: -1906933388
+      Tilemap paredes_35: -219973109
+      Tilemap paredes_36: 387241307
+      Tilemap paredes_37: 2055637003
+      Tilemap paredes_38: -2008832987
+      Tilemap paredes_39: -287523864
+      Tilemap paredes_4: -917622428
+      Tilemap paredes_40: -648763727
+      Tilemap paredes_41: 1923694784
+      Tilemap paredes_42: 241531352
+      Tilemap paredes_43: 1290138846
+      Tilemap paredes_44: -1790440181
+      Tilemap paredes_45: -2042426020
+      Tilemap paredes_46: 1014885402
+      Tilemap paredes_47: 381399592
+      Tilemap paredes_48: 1377538796
+      Tilemap paredes_5: 164565393
+      Tilemap paredes_6: 913226647
+      Tilemap paredes_7: -1470069482
+      Tilemap paredes_8: 775575540
+      Tilemap paredes_9: -444252259
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
