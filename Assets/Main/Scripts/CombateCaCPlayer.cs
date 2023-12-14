@@ -126,6 +126,14 @@ public class CombateCaCPlayer : MonoBehaviour
                 //
                 break;
             case 3:
+                Collider2D[] rangoDurazno = Physics2D.OverlapBoxAll(quarters[quarter].GetComponent<Transform>().position, new Vector2(hitRadio, 1), 1);
+                foreach (Collider2D collider in rangoDurazno)
+                {
+                    if (collider.CompareTag("Enemy"))
+                    {
+                        collider.transform.GetComponent<Enemy>().TakeDamage(hitDamage);
+                    }
+                }
                 //
                 break;
         }
@@ -178,8 +186,8 @@ private IEnumerator UnableCollider()
         //Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(hitController.position, hitRadio);
         //Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(quarters[0].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
-        Gizmos.DrawWireCube(quarters[1].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+        //Gizmos.DrawWireCube(quarters[0].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+        //Gizmos.DrawWireCube(quarters[1].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
         //Gizmos.DrawWireCube(quarters[2].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
         //Gizmos.DrawWireCube(quarters[3].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
         //Gizmos.color = Color.cyan;
