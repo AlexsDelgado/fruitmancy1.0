@@ -26,7 +26,10 @@ public class playerManager : MonoBehaviour
     public UnityEvent muerteFruta = new UnityEvent();
     public UnityEvent muertePablo = new UnityEvent();
 
+
     public BarraDeVida HealthBarra;
+    public bool direccion; //izq false derecha true
+    public bool puedeAtacar;
 
     //nuevo 2.0
     //[SerializeField] public GameObject prefruit;
@@ -86,10 +89,10 @@ public class playerManager : MonoBehaviour
               
                 
                 muertePablo.Invoke();
-                //Destroy(gameObject);
 
+             GameManager.Instance.Death();
         }
-        if(health <= 0)
+        if(health <= 0 && playerManager.player_Instance.status != 0)
         {
             Muerte();
             
@@ -153,7 +156,7 @@ public class playerManager : MonoBehaviour
     {
       
         muerteFruta.Invoke();
-        GameManager.Instance.Death();
+        
 
 
     }

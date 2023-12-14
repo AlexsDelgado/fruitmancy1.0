@@ -9,39 +9,52 @@ public class InputHandler : MonoBehaviour
 {
     private Camera camaraPrincipal;
     public Vector2 position;
+    public bool direccion;
+
 
 
     private void Awake()
     {
         camaraPrincipal = Camera.main;
     }
-
-
     public void OnClick(InputAction.CallbackContext context)
     {
+        direccion = playerManager.player_Instance.direccion;
         //position = camaraPrincipal.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         position = camaraPrincipal.ScreenToViewportPoint(Mouse.current.position.ReadValue());
         //Debug.Log("x"+position.x);
         //Debug.Log("y"+position.y);
-        if (context.performed)
+        if (context.performed && playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().puedeAtacar)
         {
-            if (position.x < 0.5f)
+            if (position.x < 0.5f)//izquierda
             {
                 //Debug.Log("izquierda q1 y q4");
                 if (position.y < 0.5f)
                 {
                     //Debug.Log("quarter 4 (izq abajo");
-                    //playerManager.player_Instance.combatePlayer.ataqueNuevo(4);
-                    playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(3);
+                    if (direccion)
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(3);
+                    }
+                    else
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(2);
+                    }  
                 }
                 else
                 {
                     // Debug.Log("quarter 1 (izq arriba");
-                    //playerManager.player_Instance.attackFX(1);
                     //playerManager.player_Instance.combatePlayer.StartCoroutine(ataqueNuevo(1));
                     //playerManager.player_Instance.combatePlayer.ataqueNuevo(1);
-                    playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(0);
-
+                    
+                    if (direccion)
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(0);
+                    }
+                    else
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(1);
+                    }
                 }
             }
             else
@@ -51,12 +64,30 @@ public class InputHandler : MonoBehaviour
                 {
                     //Debug.Log("quarter 3 (der abajo");
                     // playerManager.player_Instance.combatePlayer.ataqueNuevo(3);
-                    playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(2);
+                    
+                    if (direccion)
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(2);
+                    }
+                    else
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(3);
+                    }
+
+
                 }
                 else
                 {
                     //Debug.Log("quarter 2 (der arriba");
-                    playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(1);
+                   
+                    if (direccion)
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(1);
+                    }
+                    else
+                    {
+                        playerManager.player_Instance.frutas[playerManager.player_Instance.status].GetComponent<CombateCaCPlayer>().ataqueNuevo(0);
+                    }
                 }
             }
             //if (!context.started) return;

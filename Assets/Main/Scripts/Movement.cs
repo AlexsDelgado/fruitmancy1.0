@@ -24,31 +24,20 @@ public class Movement : MonoBehaviour
     {
         var l_horizontal = Input.GetAxisRaw("Horizontal");
         var l_vertical = Input.GetAxisRaw("Vertical");
-        direction = new Vector2(l_horizontal, l_vertical);
-        //transform.position += (Vector3.right * l_horizontal + Vector3.up * l_vertical) * (movementSpeed * Time.fixedDeltaTime);
 
         bool l_isRunning = l_horizontal != 0;
 
         m_animator.SetBool("walking", l_isRunning);
 
-        if (l_horizontal > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        }
-
-        else if (l_horizontal < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        }
     }
 
     public void muertePablo()
     {
-        sePuedeMover = false;
+        //sePuedeMover = false;
         m_animator.SetTrigger("death");
-        SceneController.instance.Defeat();
+        //SceneController.instance.Defeat();
+        GameManager.Instance.Death();
+        //playerManager.player_Instance.muerte.Invoke();
     }
     private void FixedUpdate()
     {

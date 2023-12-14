@@ -12,7 +12,7 @@ public class CombateCaCPlayer : MonoBehaviour
     [SerializeField] private GameObject[] quarters;
     [SerializeField] private float hitDamage;
     [SerializeField] private float cooldownAttack;
-    public bool puedeAtacar = true;
+    public bool puedeAtacar =true;
     private Animator m_animator;
     public AudioClip attackClip;
     private Movement movement;
@@ -28,11 +28,11 @@ public class CombateCaCPlayer : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && puedeAtacar == true)
         {
-            //Punch();
+           // Punch();
 
 
-            //SoundManager.Instance.PlaySound(attackClip);
-            //StartCoroutine(Attack());
+            SoundManager.Instance.PlaySound(attackClip);
+            StartCoroutine(Attack());
 
         }
     }
@@ -98,6 +98,14 @@ public class CombateCaCPlayer : MonoBehaviour
     public void ataqueNuevo(int quarter)
     {
         StartCoroutine(animacionSFX(quarter));
+        Collider2D[] rangoManzana = Physics2D.OverlapCircleAll(quarters[quarter].GetComponent<Transform>().position,hitRadio);
+        foreach (Collider2D collider in rangoManzana)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                collider.transform.GetComponent<Enemy>().TakeDamage(hitDamage);
+            }
+        }
     }
 
     private IEnumerator Attack()

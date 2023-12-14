@@ -26,12 +26,14 @@ public class seguimientoCamara : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            playerManager.player_Instance.direccion = true;
         }
 
         else if (l_horizontal < 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            playerManager.player_Instance.direccion = false;
         }
     }
     private void FixedUpdate()

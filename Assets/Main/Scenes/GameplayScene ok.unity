@@ -860,6 +860,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   HealthBarra: {fileID: 0}
+  direccion: 1
+  puedeAtacar: 0
 --- !u!1 &556788651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,6 +2160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0}
+  direccion: 0
 --- !u!114 &1096318855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10840,7 +10843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2986166746475136120, guid: 77190650641e2ce4b99a111f6bc2c45a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2986166746475136120, guid: 77190650641e2ce4b99a111f6bc2c45a, type: 3}
       propertyPath: reboundSpeed.x
