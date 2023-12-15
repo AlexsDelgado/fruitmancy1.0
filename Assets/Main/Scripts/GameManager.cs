@@ -212,6 +212,7 @@ public class GameManager : MonoBehaviour
 
     public void startScene()
     {
+        Debug.Log("entro en escena texto");
         bottonBarGO.SetActive(true);
         bottomBar.PlayScene(currentScene);
     }

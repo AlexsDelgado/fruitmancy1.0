@@ -242,8 +242,9 @@ public class playerManager : MonoBehaviour
     //text stuff
     public void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("eventchat"))
+        if (collision.gameObject.CompareTag("eventChat"))
         {
+            Debug.Log("entro en colision");
             GameManager.Instance.startScene();
 
         }
