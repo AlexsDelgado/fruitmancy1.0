@@ -156,6 +156,16 @@ public class GameManager : MonoBehaviour
             UseItem(numSlot);
             //inventory.UseItem();
         }
+
+        //text stuff
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+        {
+            if (bottomBar.IsCompleted())
+            {
+                bottomBar.PlayNextSentence();
+            }
+        }
+
     }
     public void UseItem(int numSlot)
     {
@@ -195,7 +205,16 @@ public class GameManager : MonoBehaviour
         items[numSlot].slotSprite.GetComponent<Image>().enabled = false;
     }
 
+    //text stuff
+    public StoryScene currentScene;
+    public GameObject bottonBarGO;
+    public BottomBarController bottomBar;
 
+    public void startScene()
+    {
+        bottonBarGO.SetActive(true);
+        bottomBar.PlayScene(currentScene);
+    }
 }
 
 [System.Serializable]

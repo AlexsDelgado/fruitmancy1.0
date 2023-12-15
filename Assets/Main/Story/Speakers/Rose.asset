@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8877bdd32b01184a934bcd6a2c9d5e0, type: 3}
   m_Name: Rose
   m_EditorClassIdentifier: 
-  speakerName: 
-  textColor: {r: 0, g: 0, b: 0, a: 0}
+  speakerName: Rose
+  textColor: {r: 0.745283, g: 0, b: 0.5372549, a: 1}
