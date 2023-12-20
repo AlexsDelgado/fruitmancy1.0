@@ -28,9 +28,9 @@ public class CombateCaCPlayer : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && puedeAtacar == true)
         {
-           // Punch();
+            // Punch();
 
-
+            m_animator.SetTrigger("attack");
             SoundManager.Instance.PlaySound(attackClip);
             StartCoroutine(Attack());
 
