@@ -31,7 +31,7 @@ public class Ant : Enemy
     public override void TakeDamage(float damage)
     {
         health -= damage;
-        //StartCoroutine(NewColor());
+        StartCoroutine(hurtEnemy());
         if (health <= 0)
         {
             Death();

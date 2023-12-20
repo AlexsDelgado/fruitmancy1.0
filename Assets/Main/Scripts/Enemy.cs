@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     //public LayerMask attackLayer;
     [SerializeField] protected float health;
     public Color newColor;
+    private Color colorActual;
+    private Color colorAuxiliar;
     protected SpriteRenderer rend;
     [SerializeField] private float colorCD;
 
@@ -23,8 +25,8 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        /*rend = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
+       /* rb = GetComponent<Rigidbody2D>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;*/
         //rend.sprite = vivo;
         //animator = GetComponent<Animator>();
@@ -46,6 +48,29 @@ public class Enemy : MonoBehaviour
         rend.color = newColor;
         yield return new WaitForSeconds(colorCD);
         rend.color = Color.white;
+    }
+
+    public IEnumerator hurtEnemy()
+    {
+        colorActual = rend.material.color;
+        newColor = new Color(colorActual.r, colorActual.g, colorActual.b, 1f);
+        colorAuxiliar = new Color(colorActual.r, colorActual.g, colorActual.b, 0.6f);
+        
+      
+        rend.material.color = colorAuxiliar;
+        yield return new WaitForSeconds(0.2f);
+        rend.material.color = newColor;
+
+        yield return new WaitForSeconds(0.2f);
+        rend.material.color = colorAuxiliar;
+        yield return new WaitForSeconds(0.2f);
+        rend.material.color = newColor;
+
+        rend.material.color = colorAuxiliar;
+        yield return new WaitForSeconds(0.2f);
+        rend.material.color = newColor;
+
+
     }
     /*private void Girar()
     {

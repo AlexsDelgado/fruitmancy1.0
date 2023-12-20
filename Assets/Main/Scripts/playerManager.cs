@@ -30,6 +30,10 @@ public class playerManager : MonoBehaviour
     public bool direccion; //izq false derecha true
     public bool puedeAtacar;
 
+    //color reshape
+    private Color colorActual;
+    private Color colorAuxiliar;
+
     //nuevo 2.0
     //[SerializeField] public GameObject prefruit;
     //pruebas a eliminar:
@@ -71,11 +75,19 @@ public class playerManager : MonoBehaviour
 
     public void TakeDamage(int damage, Vector2 position)
     {
-        Debug.Log("Recibe dmg");
+        //Debug.Log("Recibe dmg");
         health -= damage;
         recibirDmg.Invoke();
+
+
+
+
         //HealthBarra.ChangeActualHealth(health);
 
+        if (health > 0)
+        {
+            StartCoroutine(hurtFX());
+        }
         if (playerManager.player_Instance.status == 0 && health <= 0 )
         {
             //health = 0;
@@ -94,33 +106,8 @@ public class playerManager : MonoBehaviour
             
             StartCoroutine(UnableCollider());
         }
-        //currentHealthHearts--;
-
-        //for (int i = m_instancedHearts.Count - 1; i >= 0; i--)
-        //{
-        //    var l_heart = m_instancedHearts[i];
-        //    if (!l_heart.activeSelf)
-        //    {
-        //        continue;
-        //    }
-
-        //    l_heart.SetActive(false);
-        //    break;
-        //}
-       
-    }
-    //public void attackFX(int position)
-    //{
-
-    //    sfxHIT.SetActive(true);
-    //    sfxHIT.GetComponent<SpriteRenderer>().sprite = q1;
-        
-
-    //    sfxHIT.transform.position = new Vector3(-5, 5,10);
-    //    //frutas[status].GetComponentInChildren<SpriteRenderer>().sprite = q1;
-    //    //frutas[status].GetComponentInChildren<Transform>().position = new Vector2(-5,5);
-
-    //}
+      
+       }
     public void isFollowing()
     {
         movmientoCamara.sePuedeMover = true;
@@ -129,8 +116,46 @@ public class playerManager : MonoBehaviour
     {
         movmientoCamara.sePuedeMover = false;
     }
+
+
+
+
+
+    private IEnumerator hurtFX()
+    {
+        //toma valor
+        colorActual = player_Instance.frutas[status].GetComponent<SpriteRenderer>().material.color;
+        colorAuxiliar = new Color(colorActual.r, colorActual.g, colorActual.b, 0.6f);
+        //pone claro
+        player_Instance.frutas[status].GetComponent<SpriteRenderer>().material.color = colorAuxiliar;
+        //desactiva fisicas colision
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+
+        yield return new WaitForSeconds(0.2f);
+        //pasa medio seg y vuelve original
+        player_Instance.frutas[status].GetComponent<SpriteRenderer>().material.color = colorActual;
+
+        //repetir
+        yield return new WaitForSeconds(0.2f);
+        player_Instance.frutas[status].GetComponent<SpriteRenderer>().material.color = colorAuxiliar;
+        yield return new WaitForSeconds(0.2f);
+        //pasa medio seg y vuelve original
+        player_Instance.frutas[status].GetComponent<SpriteRenderer>().material.color = colorActual;
+        //repetir
+        yield return new WaitForSeconds(0.2f);
+        player_Instance.frutas[status].GetComponent<SpriteRenderer>().material.color = colorAuxiliar;
+        yield return new WaitForSeconds(0.2f);
+        //pasa medio seg y vuelve original
+        player_Instance.frutas[status].GetComponent<SpriteRenderer>().material.color = colorActual;
+        Physics2D.IgnoreLayerCollision(6, 7, false);
+
+
+
+
+    }
     private IEnumerator UnableCollider()
     {
+
         Physics2D.IgnoreLayerCollision(6, 7, true);
         yield return new WaitForSeconds(invincibleTime);
         Physics2D.IgnoreLayerCollision(6, 7, false);
