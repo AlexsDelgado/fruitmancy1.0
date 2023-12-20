@@ -18,6 +18,10 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        AudioListener.volume = 0.2f;
+    }
 
     public void ToggleSfx()
     {

@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     {
         m_animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
-        playerManager.player_Instance.muerte.AddListener(muertePablo);
+        playerManager.player_Instance.muertePablo.AddListener(muertePablo);
     }
 
     // Update is called once per frame
@@ -30,13 +30,17 @@ public class Movement : MonoBehaviour
         m_animator.SetBool("walking", l_isRunning);
 
     }
-
+    public void endGame()
+    {
+        GameManager.Instance.Death();
+    }
     public void muertePablo()
     {
         //sePuedeMover = false;
         m_animator.SetTrigger("death");
         //SceneController.instance.Defeat();
-        GameManager.Instance.Death();
+        //GameManager.Instance.Death();
+        //GameManager.Instance.Death();
         //playerManager.player_Instance.muerte.Invoke();
     }
     private void FixedUpdate()

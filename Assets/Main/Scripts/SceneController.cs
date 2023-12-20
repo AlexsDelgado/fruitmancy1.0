@@ -40,15 +40,17 @@ public class SceneController: MonoBehaviour
         SceneManager.LoadScene("GameplayScene ok");
         GameManager.Instance.Continue();
     }
-
+    public void jugar()
+    {
+        //retry();
+        SceneManager.LoadScene("GameplayScene ok");
+        Time.timeScale = 1;
+    }
     public void Defeat()
     {
         SceneManager.LoadScene("Defeat");
     }
-    public void jugar()
-    {
-        SceneManager.LoadScene("GameplayScene ok");
-    }
+   
     public void Victory()
     {
 

@@ -59,11 +59,13 @@ public class UI_Manager : MonoBehaviour
     }
     public void Retry()
     {
+
         SceneController.instance.retry();
     }
 
     public void MainMenu()
     {
+        GameManager.Instance.Continue();
         SceneController.instance.MainMenu();
     }
 }

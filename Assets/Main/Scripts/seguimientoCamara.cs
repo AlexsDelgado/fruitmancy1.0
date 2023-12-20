@@ -7,7 +7,7 @@ public class seguimientoCamara : MonoBehaviour
     [SerializeField] private float movementSpeed;
     //private Animator m_animator;
     [SerializeField] private Vector2 direction;
-    private Rigidbody2D rb2D;
+    [SerializeField] private Rigidbody2D rb2D;
     public bool sePuedeMover = true;
     [SerializeField] private Vector2 reboundSpeed;
 

@@ -97,6 +97,7 @@ public class CombateCaCPlayer : MonoBehaviour
     }
     public void ataqueNuevo(int quarter)
     {
+
         StartCoroutine(animacionSFX(quarter));
 
         switch (playerManager.player_Instance.status)
@@ -175,22 +176,26 @@ private IEnumerator UnableCollider()
         Physics2D.IgnoreLayerCollision(6, 7, false);
        
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
+    //private void OnDrawGizmos()
+    //{
+       
+    //        //Gizmos.color = Color.red;
 
-        Gizmos.DrawWireSphere(quarters[0].GetComponent<Transform>().position, hitRadio);
-        Gizmos.DrawWireSphere(quarters[1].GetComponent<Transform>().position, hitRadio);
-        Gizmos.DrawWireSphere(quarters[2].GetComponent<Transform>().position, hitRadio);
-        Gizmos.DrawWireSphere(quarters[3].GetComponent<Transform>().position, hitRadio);
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(hitController.position, hitRadio);
-        //Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireCube(quarters[0].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
-        //Gizmos.DrawWireCube(quarters[1].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
-        //Gizmos.DrawWireCube(quarters[2].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
-        //Gizmos.DrawWireCube(quarters[3].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
-        //Gizmos.color = Color.cyan;
-        //Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
-    }
+    //        //Gizmos.DrawWireSphere(quarters[0].GetComponent<Transform>().position, hitRadio);
+    //        //Gizmos.DrawWireSphere(quarters[1].GetComponent<Transform>().position, hitRadio);
+    //        //Gizmos.DrawWireSphere(quarters[2].GetComponent<Transform>().position, hitRadio);
+    //        //Gizmos.DrawWireSphere(quarters[3].GetComponent<Transform>().position, hitRadio);
+
+    //        //Gizmos.color = Color.red;
+    //        //Gizmos.DrawWireSphere(hitController.position, hitRadio);
+    //        //Gizmos.color = Color.yellow;
+    //        //Gizmos.DrawWireCube(quarters[0].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+    //        //Gizmos.DrawWireCube(quarters[1].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+    //        //Gizmos.DrawWireCube(quarters[2].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+    //        //Gizmos.DrawWireCube(quarters[3].GetComponent<Transform>().position, new Vector3(hitRadio, 1, 1));
+    //        //Gizmos.color = Color.cyan;
+    //        //Gizmos.DrawWireCube(hitController.position, new Vector3(hitRadio, 1, 1));
+        
+
+    //}
 }

@@ -158,13 +158,13 @@ public class GameManager : MonoBehaviour
         }
 
         //text stuff
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
-        {
-            if (bottomBar.IsCompleted())
-            {
-                bottomBar.PlayNextSentence();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+        //{
+        //    if (bottomBar.IsCompleted())
+        //    {
+        //        bottomBar.PlayNextSentence();
+        //    }
+        //}
 
     }
     public void UseItem(int numSlot)

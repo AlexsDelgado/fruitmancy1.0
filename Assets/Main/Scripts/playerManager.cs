@@ -20,7 +20,6 @@ public class playerManager : MonoBehaviour
     [SerializeField] public int status; //0 -> gusano -> 1 fruta -> 2 banana etc
     [SerializeField] public GameObject[] frutas;
     public static playerManager player_Instance;
-    public UnityEvent muerte = new UnityEvent();
     public UnityEvent recibirDmg = new UnityEvent();
     public UnityEvent frutamancia = new UnityEvent();
     public UnityEvent muerteFruta = new UnityEvent();
@@ -46,7 +45,6 @@ public class playerManager : MonoBehaviour
         GameObject fruta = Instantiate(frutaPrefab, transform.position, transform.rotation);
 
     }
-
     private void Awake()
     {
         if (player_Instance == null)
@@ -59,8 +57,6 @@ public class playerManager : MonoBehaviour
             Destroy(this);
         }
     }
-
-
     private void Start()
     {
         movmientoCamara = GetComponent<seguimientoCamara>();
@@ -90,7 +86,7 @@ public class playerManager : MonoBehaviour
                 
                 muertePablo.Invoke();
 
-             GameManager.Instance.Death();
+             //GameManager.Instance.Death();
         }
         if(health <= 0 && playerManager.player_Instance.status != 0)
         {
@@ -133,7 +129,6 @@ public class playerManager : MonoBehaviour
     {
         movmientoCamara.sePuedeMover = false;
     }
-
     private IEnumerator UnableCollider()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);
@@ -150,8 +145,6 @@ public class playerManager : MonoBehaviour
         //movement.sePuedeMover = true;
         transformacion(0);
     }
-
-
     private void Muerte()
     {
       
@@ -160,7 +153,6 @@ public class playerManager : MonoBehaviour
 
 
     }
-
     private void Update()
     {
         //this.transform.position = frutas[status].transform.position;
@@ -185,8 +177,6 @@ public class playerManager : MonoBehaviour
 
         //Debug.Log(posicion);
     }
-
-
     public void transformacion(int scroll)
     {
         switch (scroll)
@@ -238,7 +228,6 @@ public class playerManager : MonoBehaviour
                 break;
         }
     }
-
     //text stuff
     public void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
