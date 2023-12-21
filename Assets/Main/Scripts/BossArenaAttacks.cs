@@ -33,10 +33,16 @@ public class BossArenaAttacks : MonoBehaviour
     private ParticleSystem stormParticlesUp;
     private ParticleSystem stormParticlesDown;
 
+    public GameObject Trigger;
+    private BossfightTrigger trigger;
+
     public bool Storming = false;
     private bool stormStarted = false;
     public float StormTimer;
     private float stormTime;
+
+    private float baseSpeed;
+    private float baseWarning;
 
     void Start()
     {
@@ -49,6 +55,10 @@ public class BossArenaAttacks : MonoBehaviour
         stormParticlesUp = StormParticlesUp.GetComponent<ParticleSystem>();
         stormParticlesDown = StormParticlesDown.GetComponent<ParticleSystem>();
 
+        trigger = Trigger.GetComponent<BossfightTrigger>();
+
+        baseSpeed = crowSweepScript.crowSpeed;
+        baseWarning = crowSweepScript.WarningTimer;
         //IceSpikeAttack(1);
         //ExplodingFeatherAttack(1);
         //randomAttack();
@@ -57,57 +67,60 @@ public class BossArenaAttacks : MonoBehaviour
 
     void Update()
     {
-        if (bossBehaviour.attacking)
+        if (trigger.bossFightStarted)
         {
-            attackTimer = attackTimerBase / difficultyMultiplier;
-            attackTime += Time.deltaTime;
-            
-            if (attackTime > attackTimer)
+            if (bossBehaviour.attacking)
             {
-                randomAttack();
-                attackTime = 0;
+                attackTimer = attackTimerBase / difficultyMultiplier;
+                attackTime += Time.deltaTime;
+
+                if (attackTime > attackTimer)
+                {
+                    randomAttack();
+                    attackTime = 0;
+                }
+
+                landingTime += Time.deltaTime;
+                if (landingTime > LandingTimer && !crowSweepScript.Sweeping)
+                {
+                    bossBehaviour.Land();
+                    landingTime = 0;
+                }
+
             }
 
-            landingTime += Time.deltaTime;
-            if (landingTime > LandingTimer && !crowSweepScript.Sweeping)
-            {
-                bossBehaviour.Land();
-                landingTime = 0;
-            }
-        
-        }
+            float bossMissingHealth = (bossBehaviour.MaxHealth - bossBehaviour.CurrentHealth) / 100;
+            difficultyMultiplier = 1 + bossMissingHealth;
 
-        float bossMissingHealth = (bossBehaviour.MaxHealth - bossBehaviour.CurrentHealth) / 100;
-        difficultyMultiplier = 1 + bossMissingHealth;
-
-        if (bossBehaviour.CurrentHealth <= bossBehaviour.MaxHealth * 0.2) 
-        {
-            if (!Storming)
+            if (bossBehaviour.CurrentHealth <= bossBehaviour.MaxHealth * 0.5)
             {
-                Storming = true;
+                if (!Storming)
+                {
+                    Storming = true;
+                }
+                else
+                {
+                    /*stormTime += Time.deltaTime;
+                    if (stormTime >= StormTimer)
+                    {
+                        updateStorm();
+                        stormTime = 0;
+                    }*/
+                }
             }
-            else
+
+            if (Storming)
             {
-                /*stormTime += Time.deltaTime;
+                if (!stormStarted)
+                {
+                    startStorm();
+                }
+                stormTime += Time.deltaTime;
                 if (stormTime >= StormTimer)
                 {
                     updateStorm();
                     stormTime = 0;
-                }*/
-            }
-        }
-
-        if (Storming)
-        {
-            if (!stormStarted)
-            {
-                startStorm();
-            }
-            stormTime += Time.deltaTime;
-            if (stormTime >= StormTimer)
-            {
-                updateStorm();
-                stormTime = 0;
+                }
             }
         }
     }
@@ -139,7 +152,8 @@ public class BossArenaAttacks : MonoBehaviour
         for (int i = 0; i < amount; i++) 
         {
             float angle = Random.Range(-180f, 180f);
-            float r = Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 2f);
+            float r = Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 2f);
+            r = Mathf.Clamp(r, 0, 25);
             Vector2 spikePosition = new Vector2(r * Mathf.Cos(angle), r * Mathf.Sin(angle));
 
             Instantiate(IceSpike, spikePosition, Quaternion.identity);
@@ -167,10 +181,10 @@ public class BossArenaAttacks : MonoBehaviour
         if (!crowSweepScript.Sweeping)
         {
             CrowSweep.SetActive(true);
-            float baseSpeed = crowSweepScript.crowSpeed;
-            crowSweepScript.crowSpeed = baseSpeed * multiplier;
-            float baseWarning = crowSweepScript.WarningTimer;
-            crowSweepScript.WarningTimer = baseWarning / multiplier;
+            float newSpeed = baseSpeed * multiplier;
+            crowSweepScript.crowSpeed = newSpeed;
+            float newWarning = baseWarning * multiplier;
+            crowSweepScript.WarningTimer = newWarning;
             crowSweepScript.RandomRotation();
             crowSweepScript.ResetAttack();
         }
