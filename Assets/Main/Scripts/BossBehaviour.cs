@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class BossBehaviour : Enemy
 {
@@ -8,21 +9,25 @@ public class BossBehaviour : Enemy
     private float restTime;
     private Animator animator;
     //private Rigidbody2D rb;
+    private Collider2D collider2d;
 
     public Vector2 FlyToPosition;
     public Vector2 FlyFromPosition;
     public Vector2 BasePosition;
 
     public float MaxHealth;
-    private float currentHealth;
+    public float currentHealth;
     public float CurrentHealth => currentHealth;
 
     public bool attacking = false;
+
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        collider2d = GetComponent<Collider2D>();
         BasePosition = new Vector2(transform.position.x, transform.position.y);
         currentHealth = MaxHealth;
     }
@@ -40,6 +45,7 @@ public class BossBehaviour : Enemy
         {
             case state.Grounded:
                 animator.SetTrigger("Landed");
+                collider2d.enabled = true;
                 restTime += Time.deltaTime;
                 if (restTime > restTimer)
                 {
@@ -49,6 +55,7 @@ public class BossBehaviour : Enemy
                 break;
             case state.Flying:
                 animator.SetTrigger("Takeoff");
+                collider2d.enabled = false;
                 //rb.position = new Vector2(rb.position.x - 0.05f, rb.position.y + 0.05f);
                 transform.position = Vector2.MoveTowards(rb.position, FlyToPosition, 0.05f);
                 if (transform.position == new Vector3(FlyToPosition.x, FlyToPosition.y, transform.position.z))
@@ -82,6 +89,11 @@ public class BossBehaviour : Enemy
     public void changeState(state newState)
     {
         crowState = newState;
+    }
+
+    public void Land()
+    {
+        crowState = state.Landing;
     }
 
     private void OnDrawGizmos()

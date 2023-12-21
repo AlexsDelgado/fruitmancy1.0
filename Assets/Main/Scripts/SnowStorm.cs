@@ -36,13 +36,13 @@ public class SnowStorm : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(inTriggerZone);
+        //Debug.Log(inTriggerZone);
         if (inTriggerZone)
         {
             switch (StormDirection)
             {
                 case direction.right:
-                    Debug.Log("storm");
+                    //Debug.Log("storm");
                     otherrb.AddForce(rightForce);
                     break;
                 case direction.left:

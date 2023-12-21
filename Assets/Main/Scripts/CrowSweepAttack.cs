@@ -59,6 +59,7 @@ public class CrowSweepAttack : MonoBehaviour
         warningTime += Time.deltaTime;
         if (warningTime < WarningTimer) 
         {
+            Sweeping = true;
             warningBlinkTime += Time.deltaTime;
             if (warningBlinkTime >= warningBlinkTimer)
             {
