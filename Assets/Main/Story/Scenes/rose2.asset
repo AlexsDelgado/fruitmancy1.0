@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: rose2
   m_EditorClassIdentifier: 
   sentences:
-  - text: Bienvenido viajero
+  - text: Are you interested in magic?
     speaker: {fileID: 11400000, guid: 6c8368b55b788c042b0a24d6d1de55bd, type: 2}
-  - text: hola
+  - text: Maybe...
     speaker: {fileID: 11400000, guid: a9fef4f371ef3654db43157f467fcf28, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}
