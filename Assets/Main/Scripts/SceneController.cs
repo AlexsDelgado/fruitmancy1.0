@@ -43,8 +43,16 @@ public class SceneController: MonoBehaviour
     public void jugar()
     {
         //retry();
-        SceneManager.LoadScene("GameplayScene ok");
-        Time.timeScale = 1;
+        if (StatManager.Instance.runs ==0)
+        {
+            StatManager.Instance.ShowScroll(0);
+        }
+        else
+        {
+            SceneManager.LoadScene("GameplayScene ok");
+            Time.timeScale = 1;
+        }
+       
     }
     public void Defeat()
     {

@@ -77,6 +77,7 @@ public class playerManager : MonoBehaviour
     {
         //Debug.Log("Recibe dmg");
         health -= damage;
+        StatManager.Instance.damageGetRun++;
         recibirDmg.Invoke();
 
 
@@ -172,7 +173,7 @@ public class playerManager : MonoBehaviour
     }
     private void Muerte()
     {
-      
+        StatManager.Instance.fruitDeathsRun++;
         muerteFruta.Invoke();
         
 
