@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
     public static UI_Manager UI;
     [SerializeField] private GameObject[] Hearts;
     [SerializeField] private int health = 3;
+
+    [SerializeField] Image bossHealthFill;
+    [SerializeField] GameObject bossHealth;
 
     private void Awake()
     {
@@ -30,6 +34,16 @@ public class UI_Manager : MonoBehaviour
 
         Hearts[1].gameObject.SetActive(false);
         Hearts[2].gameObject.SetActive(false);
+    }
+
+    public void DisplayBossHealth(bool toggle)
+    {
+        bossHealth.SetActive(toggle);
+    }
+
+    public void UpdateBossHealth(float currentHealth, float maxHealth)
+    {
+        bossHealthFill.fillAmount = Mathf.Clamp(currentHealth / maxHealth, 0, 1f);
     }
 
     public void changeLife()

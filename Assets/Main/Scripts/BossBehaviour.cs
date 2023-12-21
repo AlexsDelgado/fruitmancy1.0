@@ -20,7 +20,7 @@ public class BossBehaviour : Enemy
     private Vector2 BasePosition;
 
     public float MaxHealth;
-    public float currentHealth;
+    private float currentHealth;
     public float CurrentHealth => currentHealth;
 
     public bool attacking = false;
@@ -28,23 +28,28 @@ public class BossBehaviour : Enemy
     public GameObject Trigger;
     private BossfightTrigger trigger;
 
+    UI_Manager uimanager;
+    private bool uiinitialized = false;
 
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        collider2d = GetComponent<Collider2D>();
-        BasePosition = new Vector2(transform.position.x, transform.position.y);
-        currentHealth = MaxHealth;
+        trigger = Trigger.GetComponent<BossfightTrigger>();
 
         FlyToPosition = FlyTo.transform.position;
         FlyFromPosition = FlyFrom.transform.position;
         BasePosition = Base.transform.position;
 
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        collider2d = GetComponent<Collider2D>();
+        //BasePosition = new Vector2(transform.position.x, transform.position.y);
+        
+        currentHealth = MaxHealth;
         restTime = 4;
 
-        trigger = Trigger.GetComponent<BossfightTrigger>();
+        uimanager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+
     }
 
     public enum state {
@@ -53,11 +58,14 @@ public class BossBehaviour : Enemy
         Away,
         Landing
     }
+
     private state crowState = state.Grounded;
+
     void Update()
     {
         if (trigger.bossFightStarted)
         {
+            initializeHealthUI();
             switch (crowState)
             {
                 case state.Grounded:
@@ -113,6 +121,25 @@ public class BossBehaviour : Enemy
         crowState = state.Landing;
     }
 
+    private void initializeHealthUI()
+    {
+        if (!uiinitialized)
+        {
+            uiinitialized = true;
+            uimanager.DisplayBossHealth(true);
+            uimanager.UpdateBossHealth(currentHealth, MaxHealth);
+        }
+    }
+
+    private void updateHealthUI()
+    {
+        uimanager.UpdateBossHealth(currentHealth, MaxHealth);
+        if (currentHealth <= 0)
+        {
+            uimanager.DisplayBossHealth(false);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(FlyToPosition, 1);
@@ -123,6 +150,7 @@ public class BossBehaviour : Enemy
     public override void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        updateHealthUI();
         //StartCoroutine(NewColor());
         if (currentHealth <= 0)
         {

@@ -36,7 +36,6 @@ public class SnowStorm : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(inTriggerZone);
         if (inTriggerZone)
         {
             switch (StormDirection)
