@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     public Item[] items;
     private Sprite sprite;
     private GameObject prefabInv;
-    ShopZone ui;
+    public ShopZone ui;
 
 
     private void Awake()

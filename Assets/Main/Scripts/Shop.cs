@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     public int Price;
+    public int position;
     public GameObject fruta;
     [SerializeField] private bool buyable;
     private bool istrue;
@@ -21,24 +22,43 @@ public class Shop : MonoBehaviour
 
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Update()
     {
-        //istrue = true;
-        if (collision.gameObject.layer == 7 && Input.GetButtonDown("Buy") && GameManager.Instance.currency >= Price)// && istrue && Input.GetKeyDown(KeyCode.R))//layer o tag del jugador && Input.GetKeyDown(KeyCode.R))
-        { 
-              //le da el objeto al inventario
-              //GameManager.Instance.m_coins -= Price;
-              //HUD.HUD_Instance.buyItem(Price);
-              GameManager.Instance.buyItem(Price);
-              //playerManager.player_Instance.prefruit = fruta; // ccodigo a ser reemplazado con Scroll
-              grabFruit();
-              gameObject.SetActive(false);
+        if (buyable)
+        {
+            if (istrue && Input.GetButtonDown("ActionButton"))
+            {
+                
+                tryBuy();
+            }
         }
-        else
+        
+    }
+    public void tryBuy()
+    {
+        position = verificarInventario();
+        if (GameManager.Instance.currency >= Price && position !=-1)
+        {
+            GameManager.Instance.buyItem(Price);
+            grabFruit();
+            
+        }else
         {
             Debug.Log("no hay monedas suficientes");
-            grabFruit();
-            gameObject.SetActive(false);
+            //grabFruit();
+            //gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            istrue = true;
+            if (buyable == false)
+            {
+                grabFruit();
+
+            }
         }
     }
 
@@ -47,29 +67,53 @@ public class Shop : MonoBehaviour
         // Check if the colliding object is the player.
         if (other.CompareTag("Player"))
         {
-            //istrue = false;
+            istrue = false;
         }
     }
 
-
-    public void grabFruit()
+    public int verificarInventario()
     {
         for (int i = 0; i < Inventory.items.Length; i++)
         {
             if (Inventory.items[i].isFull == false)
             {
-                Debug.Log("Item Added");
-                Inventory.items[i].isFull = true;
-                //Inventory.items[i].amount = 1;
-                Inventory.items[i].type = type;
-                Inventory.items[i].name = nameItem;
-                Inventory.items[i].slotSprite.GetComponent<Image>().sprite = sprite;
-                Inventory.items[i].slotSprite.GetComponent<Image>().enabled = true;
-                Inventory.items[i].prefab = fruta;
-
-                //Destroy(gameObject);
-                break;
+                return i;
             }
         }
+        return -1;
+
+    }
+
+    public void grabFruit()
+    {
+        position = verificarInventario();
+        if (position !=-1)
+        {
+            Inventory.items[position].isFull = true;
+            Inventory.items[position].type = type;
+            Inventory.items[position].name = nameItem;
+            Inventory.items[position].slotSprite.GetComponent<Image>().sprite = sprite;
+            Inventory.items[position].slotSprite.GetComponent<Image>().enabled = true;
+            Inventory.items[position].prefab = fruta;
+            gameObject.SetActive(false);
+        }
+        
+        //for (int i = 0; i < Inventory.items.Length; i++)
+        //{
+        //    if (Inventory.items[i].isFull == false)
+        //    {
+        //        Debug.Log("Item Added");
+        //        Inventory.items[i].isFull = true;
+        //        //Inventory.items[i].amount = 1;
+        //        Inventory.items[i].type = type;
+        //        Inventory.items[i].name = nameItem;
+        //        Inventory.items[i].slotSprite.GetComponent<Image>().sprite = sprite;
+        //        Inventory.items[i].slotSprite.GetComponent<Image>().enabled = true;
+        //        Inventory.items[i].prefab = fruta;
+        //        //Destroy(gameObject);
+        //        gameObject.SetActive(false);
+        //        break;
+        //    }
+        //}
     }
 }

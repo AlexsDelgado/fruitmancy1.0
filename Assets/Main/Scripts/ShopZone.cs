@@ -13,13 +13,17 @@ public class ShopZone : MonoBehaviour
 
     public void UpdateUi()
     {
-        coinsText.text = "Monedas: " + currency.currency;
+        coinsText.text = GameManager.Instance.currency.ToString();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             currencyHUD.SetActive(true); // activar el HUD de currency
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            other.gameObject.SetActive(false);
         }
     }
 
