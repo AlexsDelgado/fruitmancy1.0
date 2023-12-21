@@ -29,7 +29,9 @@ public class ItemTransform : MonoBehaviour
 
     private void Update()
     {
-        if (canPickup && Input.GetKeyDown(KeyCode.T))
+        if (canPickup && Input.GetButtonDown("ActionButton"))
+        //Input.GetButtonDown("ActionButton")
+        //Input.GetKeyDown(KeyCode.T)
         {
             PickupItem();
         }

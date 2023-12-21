@@ -73,7 +73,7 @@ public class ladybug : Enemy
     public override void TakeDamage(float damage)
     {
         health -= damage;
-        //StartCoroutine(NewColor());
+        StartCoroutine(hurtEnemy());
         if (health <= 0)
         {
             Death();
@@ -84,6 +84,7 @@ public class ladybug : Enemy
     {
         isDead = true;
         rb.velocity = Vector2.zero;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         animator.SetBool("isDead", true);
     }
 

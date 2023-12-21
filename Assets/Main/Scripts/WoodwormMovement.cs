@@ -38,6 +38,7 @@ public class WoodwormMovement : Enemy
     public GameObject currency;
 
     private bool dug;
+    private bool flagAwaken  = false;
 
 
     void Start()
@@ -50,6 +51,7 @@ public class WoodwormMovement : Enemy
 
     void Update()
     {
+      
         switch (isAwake)
         {
             case state.Asleep:
@@ -60,12 +62,21 @@ public class WoodwormMovement : Enemy
                 {
                     Debug.Log("Awake");
                     isAwake = state.Awake;
+                    flagAwaken = true;
                     //Debug.Log("Awake");
                 }
+         
                 break;
             case state.Awake:
                 WBehaviour();
                 break;
+        }
+        float distancia = Vector2.Distance(transform.position, playerTransform.position);
+        
+        if (distancia >= wakeUpRange*3 && flagAwaken)
+        {
+            Debug.Log("Se durmio");
+            gameObject.SetActive(false);
         }
     }
 
@@ -90,7 +101,6 @@ public class WoodwormMovement : Enemy
                 float distance = Vector2.Distance(transform.position, playerTransform.position);
                 lastMovement += Time.deltaTime;
                 lastAttack += Time.deltaTime;
-
                 if (distance <= attackTryRange && canAttack && lastAttack > attackTimer)
                 {
                     Debug.Log("esta en diistancia puede atacar y timer ok");
@@ -164,7 +174,7 @@ public class WoodwormMovement : Enemy
     {
         Debug.Log("larva dañada");
         health -= damage;
-        //StartCoroutine(NewColor());
+        StartCoroutine(hurtEnemy());
         if (health <= 0)
         {
             Death();
@@ -174,6 +184,7 @@ public class WoodwormMovement : Enemy
     {
         //animator.SetBool("Death");
         GameObject loot = Instantiate(currency, transform.position, transform.rotation);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         Destroy(gameObject);
     }
 

@@ -163,7 +163,7 @@ public class spider : Enemy
     public override void TakeDamage(float damage)
     {
         health -= damage;
-        //StartCoroutine(NewColor());
+        StartCoroutine(hurtEnemy());
         if (health <= 0)
         {
             Death();
@@ -174,10 +174,11 @@ public class spider : Enemy
     {
         isDead = true;
         rb.velocity = Vector2.zero;
-        //StartCoroutine(muerte());
-        GameObject loot = Instantiate(currency, transform.position, transform.rotation);
-        Destroy(gameObject);
-        //animator.SetBool("isDead", true);
+        StartCoroutine(muerte());
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //GameObject loot = Instantiate(currency, transform.position, transform.rotation);
+        //Destroy(gameObject);
+        animator.SetTrigger("failed");
     }
 
     public IEnumerator muerte()

@@ -57,6 +57,7 @@ public class Shop : MonoBehaviour
         }
     }
 
+
     public void grabFruit()
     {
         for (int i = 0; i < Inventory.items.Length; i++)

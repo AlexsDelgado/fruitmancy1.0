@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
     public void GrabCoin()
     {
         sumCoins.Invoke();
+        StatManager.Instance.collectedCurrencyRun++;
         currency++;
     }
     public void buyItem(int price)
@@ -105,12 +106,16 @@ public class GameManager : MonoBehaviour
         DefeatPanel.SetActive(true);
         pause = true;
         Time.timeScale = 0;
+        StatManager.Instance.endRun();
+        StatManager.Instance.loses++;
     }
     public void Victory()
     {
         VictoryPanel.SetActive(true);
         pause = true;
         Time.timeScale = 0;
+        StatManager.Instance.endRun();
+        StatManager.Instance.wins++;
     }
     public void Continue()
     {
@@ -160,7 +165,7 @@ public class GameManager : MonoBehaviour
             cambiarSelected();
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("UseInventory"))
         {
             UseItem(numSlot);
             //inventory.UseItem();

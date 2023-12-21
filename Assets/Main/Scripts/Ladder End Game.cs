@@ -8,8 +8,10 @@ public class LadderEndGame : MonoBehaviour
 
     private void Update()
     {
-        if (touching && Input.GetKeyDown(KeyCode.T))
+        if (touching && Input.GetButtonDown("ActionButton"))
         {
+            //Input.GetButtonDown("ActionButton")
+            //Input.GetKeyDown(KeyCode.T)
             otherCollider.transform.position = Hatch.transform.position;
         }
     }

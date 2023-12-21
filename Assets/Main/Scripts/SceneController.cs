@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 public class SceneController: MonoBehaviour
 {
     public static SceneController instance;
+    public GameObject primerRun;
+    public GameObject continuar;
+    private bool flag = true;
     
     
 
@@ -40,12 +43,19 @@ public class SceneController: MonoBehaviour
         SceneManager.LoadScene("GameplayScene ok");
         GameManager.Instance.Continue();
     }
+    public void primerPartida()
+    {
+        primerRun.SetActive(true);
+        continuar.SetActive(true);
+        flag = false;
+
+    }
     public void jugar()
     {
         //retry();
-        if (StatManager.Instance.runs ==0)
+        if (flag==true)
         {
-            StatManager.Instance.ShowScroll(0);
+            primerPartida();
         }
         else
         {
