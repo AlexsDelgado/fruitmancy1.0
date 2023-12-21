@@ -65,6 +65,10 @@ public class BossBehaviour : Enemy
     {
         if (trigger.bossFightStarted)
         {
+            if(currentHealth < MaxHealth * 0.6)
+            {
+                animator.SetBool("Tired", true);
+            }
             initializeHealthUI();
             switch (crowState)
             {
