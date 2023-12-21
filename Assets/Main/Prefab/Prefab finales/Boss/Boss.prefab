@@ -227,3 +227,5 @@ MonoBehaviour:
   FlyToPosition: {x: -24.7, y: 50.34}
   FlyFromPosition: {x: 26.7, y: 49.37}
   BasePosition: {x: 3.44, y: 26}
+  MaxHealth: 100
+  attacking: 0

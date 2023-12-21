@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1374f6ceeffb00b4284092af5ff0b155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warningTimer: 4
-  destroyTimer: 4
+  warningTimer: 2
+  destroyTimer: 2
 --- !u!50 &1853926327562287629
 Rigidbody2D:
   serializedVersion: 4

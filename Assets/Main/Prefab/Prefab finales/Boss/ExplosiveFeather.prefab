@@ -134,7 +134,7 @@ MonoBehaviour:
   feather: {fileID: 1161671506146978460}
   marker: {fileID: 5478742761623011745}
   explosion: {fileID: 8618647043564891883}
-  FallSpeed: 5
+  FallSpeed: 10
 --- !u!1 &5478742761623011745
 GameObject:
   m_ObjectHideFlags: 0

@@ -472,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crow: {fileID: 4473794871081235866}
   warning: {fileID: 3556699567941834593}
-  warningTimer: 5
+  WarningTimer: 5
   warningBlinkTimer: 0.5
   crowSpeed: 50
   flyTo: {fileID: 5536456826625618951}
