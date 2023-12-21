@@ -68,7 +68,6 @@ public class BossBehaviour : MonoBehaviour
 
                 break;
         }
-            
     }
 
     private void OnDrawGizmos()
