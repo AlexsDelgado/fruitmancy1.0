@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 
 public class BossArenaAttacks : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class BossArenaAttacks : MonoBehaviour
     public GameObject Trigger;
     private BossfightTrigger trigger;
 
+    public GameObject Center;
+    private Vector2 arenaCenter;
+
     public bool Storming = false;
     private bool stormStarted = false;
     public float StormTimer;
@@ -56,6 +60,8 @@ public class BossArenaAttacks : MonoBehaviour
         stormParticlesDown = StormParticlesDown.GetComponent<ParticleSystem>();
 
         trigger = Trigger.GetComponent<BossfightTrigger>();
+
+        arenaCenter = Center.GetComponent<Transform>().position;
 
         baseSpeed = crowSweepScript.crowSpeed;
         baseWarning = crowSweepScript.WarningTimer;
@@ -154,7 +160,7 @@ public class BossArenaAttacks : MonoBehaviour
             float angle = Random.Range(-180f, 180f);
             float r = Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 2f);
             r = Mathf.Clamp(r, 0, 25);
-            Vector2 spikePosition = new Vector2(r * Mathf.Cos(angle), r * Mathf.Sin(angle));
+            Vector2 spikePosition = new Vector2(arenaCenter.x + r * Mathf.Cos(angle), arenaCenter.y + r * Mathf.Sin(angle));
 
             Instantiate(IceSpike, spikePosition, Quaternion.identity);
         }
@@ -170,7 +176,7 @@ public class BossArenaAttacks : MonoBehaviour
         {
             float angle = Random.Range(-180f, 180f);
             float r = Random.Range(4f, 6f) + Random.Range(2f, 6f) + Random.Range(0f, 6f) + Random.Range(0f, 6f);
-            Vector2 featherPosition = new Vector2(r * Mathf.Cos(angle), r * Mathf.Sin(angle));
+            Vector2 featherPosition = new Vector2(arenaCenter.x + r * Mathf.Cos(angle), arenaCenter.y + r * Mathf.Sin(angle));
 
             Instantiate(ExplodingFeather, featherPosition, Quaternion.identity);
         }

@@ -121,24 +121,7 @@ public class BossBehaviour : Enemy
         crowState = state.Landing;
     }
 
-    private void initializeHealthUI()
-    {
-        if (!uiinitialized)
-        {
-            uiinitialized = true;
-            uimanager.DisplayBossHealth(true);
-            uimanager.UpdateBossHealth(currentHealth, MaxHealth);
-        }
-    }
 
-    private void updateHealthUI()
-    {
-        uimanager.UpdateBossHealth(currentHealth, MaxHealth);
-        if (currentHealth <= 0)
-        {
-            uimanager.DisplayBossHealth(false);
-        }
-    }
 
     private void OnDrawGizmos()
     {
@@ -161,5 +144,24 @@ public class BossBehaviour : Enemy
     public override void Death() 
     {
         GameManager.Instance.Victory();
+    }
+
+    private void initializeHealthUI()
+    {
+        if (!uiinitialized)
+        {
+            uiinitialized = true;
+            uimanager.DisplayBossHealth(true);
+            uimanager.UpdateBossHealth(currentHealth, MaxHealth);
+        }
+    }
+
+    private void updateHealthUI()
+    {
+        uimanager.UpdateBossHealth(currentHealth, MaxHealth);
+        if (currentHealth <= 0)
+        {
+            uimanager.DisplayBossHealth(false);
+        }
     }
 }
