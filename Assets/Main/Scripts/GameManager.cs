@@ -22,13 +22,25 @@ public enum ItemType
 
 public class GameManager : MonoBehaviour
 {
+
+    
+
     public static GameManager Instance;
-    [SerializeField] public int currency;
+    
     public UnityEvent sumCoins = new UnityEvent();
     public GameObject PausePanel;
     public GameObject DefeatPanel;
     public GameObject VictoryPanel;
     public bool pause = false;
+
+    //stats
+    [SerializeField] public int currency;
+
+    //contadorcontador daño recibido
+    //contador daño infligido 
+    //contador enemigos eliminados
+    //contador de muertes
+    //contador de frutas
 
     //inventario
     public int numSlot;
@@ -59,12 +71,16 @@ public class GameManager : MonoBehaviour
         items[2].Selected.GetComponent<Image>().enabled = false;
     }
 
-    //public void buyItem(int price)
-    //{
-    //    currency -= price;
-    //    //useCoin.Invoke();
+    public void CargarMenu(GameObject pausa, GameObject defeat, GameObject victory)
+    {
+        PausePanel = pausa;
+        DefeatPanel = defeat;
+        VictoryPanel = victory;
 
-    //}
+
+    }
+
+
     public void AddCoin(Currency coin)
     {
         coin.OnCoinGrab.AddListener(GrabCoin);
@@ -78,30 +94,24 @@ public class GameManager : MonoBehaviour
     {
         currency -= price;
     }
-
     public void Pause()
     {
         PausePanel.SetActive(true);
         pause = true;
         Time.timeScale = 0;
     }
-
     public void Death()
     {
         DefeatPanel.SetActive(true);
         pause = true;
         Time.timeScale = 0;
     }
-
     public void Victory()
     {
         VictoryPanel.SetActive(true);
         pause = true;
         Time.timeScale = 0;
     }
-
-
-
     public void Continue()
     {
         PausePanel.SetActive(false);
@@ -109,7 +119,6 @@ public class GameManager : MonoBehaviour
         DefeatPanel.SetActive(false);
         pause = false;
         Time.timeScale = 1;
-
     }
 
 
@@ -192,9 +201,6 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
-
-
     public void EmptySlot(int numSlot, Image img)
     {
         items[numSlot].isFull = false;
@@ -204,6 +210,23 @@ public class GameManager : MonoBehaviour
         items[numSlot].slotSprite.GetComponent<Image>().sprite = null;
         items[numSlot].slotSprite.GetComponent<Image>().enabled = false;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //text stuff
     public StoryScene currentScene;
