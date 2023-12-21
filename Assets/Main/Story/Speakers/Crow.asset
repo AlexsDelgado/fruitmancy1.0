@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8877bdd32b01184a934bcd6a2c9d5e0, type: 3}
-  m_Name: Pablito
+  m_Name: Crow
   m_EditorClassIdentifier: 
-  speakerName: Pablito
-  textColor: {r: 0.809, g: 0, b: 0.008803844, a: 1}
+  speakerName: Crow
+  textColor: {r: 0.348, g: 1, b: 1, a: 1}

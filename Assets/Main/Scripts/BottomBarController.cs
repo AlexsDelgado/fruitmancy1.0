@@ -33,6 +33,10 @@ public class BottomBarController : MonoBehaviour
     {
         return state == State.COMPLETED;   
     }
+    public bool IsLastSentence()
+    {
+        return sentenceIndex + 1 == currentScene.sentences.Count;
+    }
 
     public void PlayNextSentence()
     {

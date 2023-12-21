@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     private Sprite sprite;
     private GameObject prefabInv;
     public ShopZone ui;
+    public bool chatting = false;
 
 
     private void Awake()
@@ -151,6 +152,20 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        if (chatting && Input.GetButtonDown("ActionButton"))
+        {
+            if (bottomBar.IsCompleted())
+            {
+                if (bottomBar.IsLastSentence())
+                {
+                    bottonBarGO.SetActive(false);
+                    txtRose++;
+                    //Time.timeScale = 1;
+                    playerManager.player_Instance.chatBool = false;
+                }
+                bottomBar.PlayNextSentence();
+            }
+        }
         if (Input.GetButtonDown("InventoryLeft"))
         {
             numSlot -= 1;
@@ -219,32 +234,51 @@ public class GameManager : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //text stuff
-    public StoryScene currentScene;
+    public StoryScene[] Rose;
+    public StoryScene[] Crow;
+    public int txtRose=0; 
+    public int txtCrow=0;
+
     public GameObject bottonBarGO;
     public BottomBarController bottomBar;
 
-    public void startScene()
+    public void leerChat()
     {
-        Debug.Log("entro en escena texto");
         bottonBarGO.SetActive(true);
-        bottomBar.PlayScene(currentScene);
+        chatting = true;
+        bottomBar.PlayScene(Rose[0]);
+
     }
+    public void chatRose()
+    {
+        if (txtRose<= Rose.Length)
+        {
+            //Time.timeScale = 0;
+            chatting = true;
+            bottonBarGO.SetActive(true);
+            bottomBar.PlayScene(Rose[txtRose]);
+          
+        }
+        Debug.Log("no hay mas dialogos");
+
+    }
+    //public void chatRose(int scene)
+    //{
+    //    bottonBarGO.SetActive(true);
+    //    bottomBar.PlayScene(Rose[scene]);
+    //}
+    //public void chatCrow()
+    //{
+    //    if (txtCrow <= Crow.Length)
+    //    {
+    //        Time.timeScale = 0;
+    //        bottonBarGO.SetActive(true);
+    //        bottomBar.PlayScene(Crow[txtCrow]);
+    //        txtCrow++;
+    //    }
+    //    Debug.Log("no hay mas dialogos");
+    //}
 }
 
 [System.Serializable]

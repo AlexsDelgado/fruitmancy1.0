@@ -37,6 +37,7 @@ public class playerManager : MonoBehaviour
     //nuevo 2.0
     //[SerializeField] public GameObject prefruit;
     //pruebas a eliminar:
+    public bool chatBool =false;
 
    // [SerializeField] public Sprite q1,q2,q3,q4;
    // [SerializeField] public GameObject sfxHIT;
@@ -257,12 +258,17 @@ public class playerManager : MonoBehaviour
     //text stuff
     public void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("eventChat"))
+        if (chatBool == false)
         {
-            Debug.Log("entro en colision");
-            GameManager.Instance.startScene();
+            if (collision.gameObject.CompareTag("eventChat"))
+            {
+                Debug.Log("se llama al chat");
+                chatBool = true;
+                GameManager.Instance.chatRose();
 
+            }
         }
+        
     }
 
 }

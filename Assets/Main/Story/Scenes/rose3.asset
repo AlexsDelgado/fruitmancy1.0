@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8877bdd32b01184a934bcd6a2c9d5e0, type: 3}
-  m_Name: Pablito
+  m_Script: {fileID: 11500000, guid: f33001eea9fc731419279438e1b0b898, type: 3}
+  m_Name: rose3
   m_EditorClassIdentifier: 
-  speakerName: Pablito
-  textColor: {r: 0.809, g: 0, b: 0.008803844, a: 1}
+  sentences:
+  - text: "No fio hoy, ma\xF1ana si"
+    speaker: {fileID: 11400000, guid: 6c8368b55b788c042b0a24d6d1de55bd, type: 2}
+  background: {fileID: 0}
+  nextScene: {fileID: 0}
