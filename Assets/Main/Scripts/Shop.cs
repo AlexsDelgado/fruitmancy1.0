@@ -18,33 +18,27 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         Inventory = GameManager.Instance;
-        
+
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //istrue = true;
-        if (collision.gameObject.layer == 7)// && istrue && Input.GetKeyDown(KeyCode.R))//layer o tag del jugador && Input.GetKeyDown(KeyCode.R))
+        if (collision.gameObject.layer == 7 && Input.GetButtonDown("Buy") && GameManager.Instance.currency >= Price)// && istrue && Input.GetKeyDown(KeyCode.R))//layer o tag del jugador && Input.GetKeyDown(KeyCode.R))
+        { 
+              //le da el objeto al inventario
+              //GameManager.Instance.m_coins -= Price;
+              //HUD.HUD_Instance.buyItem(Price);
+              GameManager.Instance.buyItem(Price);
+              //playerManager.player_Instance.prefruit = fruta; // ccodigo a ser reemplazado con Scroll
+              grabFruit();
+              gameObject.SetActive(false);
+        }
+        else
         {
-            Debug.Log("entra al colision tru");
-            if (buyable){
-                if (GameManager.Instance.currency >= Price)
-                {
-                    //le da el objeto al inventario
-                    //GameManager.Instance.m_coins -= Price;
-                    //HUD.HUD_Instance.buyItem(Price);
-                    GameManager.Instance.buyItem(Price);
-                    //playerManager.player_Instance.prefruit = fruta; // ccodigo a ser reemplazado con Scroll
-                    grabFruit();
-                    gameObject.SetActive(false);
-                }else{
-                    Debug.Log("no hay monedas suficientes");
-                }
-            }else{
-                grabFruit();
-                gameObject.SetActive(false);
-            }
-
+            Debug.Log("no hay monedas suficientes");
+            grabFruit();
+            gameObject.SetActive(false);
         }
     }
 
@@ -71,7 +65,7 @@ public class Shop : MonoBehaviour
                 Inventory.items[i].slotSprite.GetComponent<Image>().sprite = sprite;
                 Inventory.items[i].slotSprite.GetComponent<Image>().enabled = true;
                 Inventory.items[i].prefab = fruta;
-                
+
                 //Destroy(gameObject);
                 break;
             }
