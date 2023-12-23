@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Price: 1
+  position: 0
   fruta: {fileID: 9072268520712147804, guid: 2ce16b28ee5dba04989b59cacab2eb31, type: 3}
   buyable: 0
-  sprite: {fileID: 21300000, guid: a6fdae92767f999428fefa3e0480f709, type: 3}
+  sprite: {fileID: 21300000, guid: c9cb2d20de906b74eb3282932c62846c, type: 3}
   type: 2
   nameItem: Peach Scroll
 --- !u!61 &4910714697330920590

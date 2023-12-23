@@ -193,6 +193,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1767516604590017691}
     m_Modifications:
+    - target: {fileID: 101928246920772383, guid: efc673d390403f248b9f2aac505c343b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 406011049593244622, guid: efc673d390403f248b9f2aac505c343b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2
@@ -4083,7 +4087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775723070364263722, guid: efc673d390403f248b9f2aac505c343b, type: 3}
       propertyPath: intensity
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3684821045324371859, guid: efc673d390403f248b9f2aac505c343b, type: 3}
       propertyPath: Base
@@ -4097,6 +4101,10 @@ PrefabInstance:
       propertyPath: FlyFrom
       value: 
       objectReference: {fileID: 1962096250057409821}
+    - target: {fileID: 3684821045324371859, guid: efc673d390403f248b9f2aac505c343b, type: 3}
+      propertyPath: MaxHealth
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3684821045324371859, guid: efc673d390403f248b9f2aac505c343b, type: 3}
       propertyPath: BasePosition.x
       value: 0

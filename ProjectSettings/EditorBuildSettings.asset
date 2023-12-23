@@ -9,16 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Main/Scenes/GameplayScene ok.unity
-    guid: 699293f33d131f548a0d12ba7d72affc
-  - enabled: 1
-    path: Assets/Main/Scenes/Victory.unity
-    guid: d92770d57d4f9bf46a6a1ad4f280f455
-  - enabled: 1
-    path: Assets/Main/Scenes/Defeat.unity
-    guid: 3d3db7205a9e2c7418341de06274d2f8
-  - enabled: 1
     path: Assets/Main/Scenes/Main Menu.unity
     guid: 6971029f76830de4b892d499b2f5937e
+  - enabled: 1
+    path: Assets/Main/Scenes/GameplayScene ok.unity
+    guid: 699293f33d131f548a0d12ba7d72affc
+  - enabled: 0
+    path: Assets/Main/Scenes/Victory.unity
+    guid: d92770d57d4f9bf46a6a1ad4f280f455
+  - enabled: 0
+    path: Assets/Main/Scenes/Defeat.unity
+    guid: 3d3db7205a9e2c7418341de06274d2f8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3155e1a0b347fba4fafcc52d8f49276c, type: 2}

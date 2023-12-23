@@ -86,7 +86,7 @@ public class BossBehaviour : Enemy
                     animator.SetTrigger("Takeoff");
                     collider2d.enabled = false;
                     //rb.position = new Vector2(rb.position.x - 0.05f, rb.position.y + 0.05f);
-                    transform.position = Vector2.MoveTowards(rb.position, FlyToPosition, 0.05f);
+                    transform.position = Vector2.MoveTowards(rb.position, FlyToPosition, 0.15f);
                     if (transform.position == new Vector3(FlyToPosition.x, FlyToPosition.y, transform.position.z))
                     {
                         crowState = state.Away;
@@ -104,7 +104,7 @@ public class BossBehaviour : Enemy
                 case state.Landing:
                     attacking = false;
                     animator.SetTrigger("Landing");
-                    transform.position = Vector2.MoveTowards(rb.position, BasePosition, 0.05f);
+                    transform.position = Vector2.MoveTowards(rb.position, BasePosition, 0.15f);
                     if (transform.position == new Vector3(BasePosition.x, BasePosition.y, transform.position.z))
                     {
                         crowState = state.Grounded;
